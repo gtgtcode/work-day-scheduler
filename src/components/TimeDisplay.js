@@ -1,11 +1,15 @@
 import { Button, ButtonGroup, Box, Modal, Typography, IconButton } from "@mui/material";
 import { Close, Edit, ModeNight, OpenInNew, WbSunny } from "@mui/icons-material";
-import React from "react";
+import { LocalizationProvider } from "@mui/material";
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import React, { useState } from "react";
 
 export default function TimeDisplay() {
     const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    const [modalType, setModal] = useState("");
+    const [timeDate, setTimeDate] = useState("");
 
     return (
       <section className="h-screen text-center col-span-3 overflow-auto">
@@ -21,7 +25,7 @@ export default function TimeDisplay() {
                             <Close className="text-white"/>
                         </IconButton>
                         <Typography id="modal-modal-title" variant="h6" component="h2">
-                            Text in a modal
+                            {modalType}
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                             Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
@@ -39,7 +43,10 @@ export default function TimeDisplay() {
             </div>
             <div id="note-container" className="col-span-5 relative">
                 <ButtonGroup className="!absolute bottom-2 left-2 !rounded-full">
-                    <Button variant="outlined" startIcon={<Edit />} onClick={handleOpen}>Edit</Button>
+                    <Button variant="outlined" startIcon={<Edit />} onClick={() => {
+                        setModal("Edit");
+                        setOpen(true);
+                        }}>Edit</Button>
                     <Button variant="outlined" startIcon={<OpenInNew />}>View More</Button>
                 </ButtonGroup>
                 <div id="note-display" className="w-[80%] h-[100px] text-left text-clip overflow-hidden p-5">
