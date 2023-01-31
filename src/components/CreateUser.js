@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, IconButton, Checkbox, FormControlLabel, FormGroup, Modal } from "@mui/material";
+import { Box, IconButton, Checkbox, FormControlLabel, FormGroup, Modal, TextField } from "@mui/material";
 import { Close } from "@mui/icons-material";
 
 export default function CreateUser() {
@@ -17,6 +17,7 @@ export default function CreateUser() {
                         <h1 className="text-2xl font-bold">Hello!</h1>
                         <p className="pt-5">Is this your first time using this application?</p>
                         <FormGroup>
+                            <TextField className="w-[200px] !border-white" id="outlined-basic" label="First Name" variant="outlined" />
                             <FormControlLabel control={<Checkbox defaultChecked />} label="Show on Startup" />
                         </FormGroup>
                     </Box>
