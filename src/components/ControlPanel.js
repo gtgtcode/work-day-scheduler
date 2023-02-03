@@ -1,16 +1,20 @@
-import dayjs from 'dayjs';
-import { useState } from 'react';
-import DateControl from './DateControl';
+import dayjs from "dayjs";
+import { useState } from "react";
+import DateControl from "./DateControl";
+import PinnedItems from "./PinnedItems";
+import MarkAllAsDone from "./MarkAllAsDone";
+import EraseAll from "./EraseAll";
 
 export default function ControlPanel() {
-    console.log(dayjs())
-    const [date, setDate] = useState(dayjs().toString())
-    
-
-    return (
-      <section className="p-5 h-screen border-r border-slate-700 text-center bg-zinc-900 mt-0">
-        <h1 className='text-xl font-bold'>Work Day Planner</h1>
+  return (
+    <section className="mt-0 h-screen overflow-auto border-r border-slate-700 bg-zinc-900 p-5 text-center">
+      <div id="top-control-container" className="overflow-auto">
+        <h1 className="text-xl font-bold">Work Day Planner</h1>
         <DateControl />
-      </section>
-    );
+        <PinnedItems />
+        <MarkAllAsDone />
+        <EraseAll />
+      </div>
+    </section>
+  );
 }
