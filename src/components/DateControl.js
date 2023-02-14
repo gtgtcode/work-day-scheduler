@@ -36,7 +36,7 @@ export default function DateControl() {
         >
           <ArrowLeft className="white-icon" />
         </IconButton>
-        {dateSelected.format("MM/DD/YYYY")}
+        <div id="dateSelected">{dateSelected.format("MM/DD/YYYY")}</div>
         <IconButton
           aria-label="right-arrow"
           className="!color-white !absolute right-[10%] top-1/2 -translate-y-1/2"
